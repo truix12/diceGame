@@ -1,0 +1,123 @@
+* {
+  box-sizing: border-box;
+  font-size: 10px;
+  font-family: 'Nunito', sans-serif;
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+}
+
+:root {
+  --main-bg-color1: #C054F0;
+  --main-bg-color2: #3C81F0;
+  --main-color: #6048F0;
+  --complementary-color1: #F0BB4D;
+  --complementary-color2: #2CF0B0;
+}
+
+body {
+  background-image: linear-gradient(to bottom right, var(--main-bg-color1), var(--main-bg-color2));
+  height: 100vh;
+}
+
+.game-board {
+  /* background-color: rgba(255, 255, 255, 0.6); */
+  border-radius: 1rem;
+  box-shadow: 8px 8px 24px 0px rgba(192, 84, 240, 0.72);
+  display: flex;
+  left: 50%;
+  /* width: 80%; */
+  min-width: 90%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.player {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 6rem 6rem;
+  width: 50%;
+}
+
+.active {
+  opacity: 0.5;
+}
+
+.player-one {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+}
+
+.player-two {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+
+.player--name {
+  font-size: 4rem;
+  font-weight: 500;
+  letter-spacing: .3rem;
+  margin-bottom: 3rem;
+  width: 100%;
+  text-align: center;
+}
+
+.player--mscore {
+  font-size: 5rem;
+  margin-bottom: 12rem;
+  text-align: center;
+  width: 100%;
+}
+
+.player--mscore span {
+  color: #6048F0;
+  font-size: 7rem;
+}
+
+.current {
+  background-color: var(--main-color);
+  border-radius: .5rem;
+  color: gainsboro;
+  padding: 1rem 3rem;
+  text-align: center;
+}
+
+.current-label {
+  font-size: 2rem;
+  margin: 1rem;
+}
+
+.current-score {
+  color: white;
+  font-size: 4rem;
+}
+
+.btn {
+  background-color: rgba(44, 240, 176, 0.9);
+  border: none;
+  color: var(--main-color);
+  cursor: pointer;
+  left: 50%;
+  border-radius: 3rem;
+  font-size: 1.6rem;
+  font-weight: 700;
+  padding: 1.2rem 2.2rem;
+  position: absolute;
+  transform: translate(-50%);
+}
+
+.btn-reset {
+  top: 3rem;
+}
+
+.btn-roll {
+  top: 36rem;
+}
+
+.btn-save {
+  bottom: 6rem;
+}
