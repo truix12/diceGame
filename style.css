@@ -110,14 +110,35 @@ body {
   transform: translate(-50%);
 }
 
+.dice {
+  height: 10vw;
+  left: 50%;
+  position: absolute;
+  top: 15rem;
+  transform: translate(-50%);
+  width: 10vw;
+}
+
 .btn-reset {
   top: 3rem;
+}
+
+.btn-reset:active {
+  top: 3.2rem;
 }
 
 .btn-roll {
   top: 36rem;
 }
 
+.btn-roll:active {
+  top: 36.2rem;
+}
+
 .btn-save {
   bottom: 6rem;
+}
+
+.btn-save:active {
+  bottom: 5.8rem;
 }
