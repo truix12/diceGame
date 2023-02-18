@@ -37,12 +37,13 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  opacity: .5;
   padding: 6rem 6rem;
   width: 50%;
 }
 
 .active {
-  opacity: 0.5;
+  opacity: .9;
 }
 
 .player-one {
@@ -141,4 +142,8 @@ body {
 
 .btn-save:active {
   bottom: 5.8rem;
+}
+
+.win {
+  background-color: #F0BB4D;
 }
