@@ -29,17 +29,14 @@ const throwDice = function () {
     return Math.floor(Math.random() * 6) + 1;
   };
   let rollNumber = rollDice();
-  console.log(rollNumber);
   dice.src = `./dice${rollNumber}.png`;
 
   if (rollNumber > 1 && p1.classList.contains("active")) {
     sumRollP1.push(rollNumber);
-    console.log(sumRollP1);
     p1CurrentScore.textContent = sumRollP1.reduce((a, b) => a + b);
   }
   if (rollNumber > 1 && p2.classList.contains("active")) {
     sumRollP2.push(rollNumber);
-    console.log(sumRollP2);
     p2CurrentScore.textContent = sumRollP2.reduce((a, b) => a + b);
   }
   if (rollNumber === 1 && p1.classList.contains("active")) {
@@ -56,7 +53,7 @@ const throwDice = function () {
 };
 
 const save = function () {
-  if (pointsP1.reduce((a, b) => a + b) < 9 && pointsP2.reduce((a, b) => a + b) < 9) {
+  if (pointsP1.reduce((a, b) => a + b) < 99 && pointsP2.reduce((a, b) => a + b) < 99) {
     if (p1.classList.contains("active")) {
       pointsP1.push(sumRollP1.reduce((a, b) => a + b));
       p1Score.textContent = pointsP1.reduce((a, b) => a + b);
@@ -64,8 +61,7 @@ const save = function () {
       p1CurrentScore.textContent = 0;
       p1.classList.remove("active");
       p2.classList.add("active");
-    }
-    if (p2.classList.contains("active")) {
+    } else if (p2.classList.contains("active")) {
       pointsP2.push(sumRollP2.reduce((a, b) => a + b));
       p2Score.textContent = pointsP2.reduce((a, b) => a + b);
       sumRollP2 = [0];
@@ -74,20 +70,38 @@ const save = function () {
       p1.classList.add("active");
     }
   }
-  if (pointsP1.reduce((a, b) => a + b) > 9) {
+  if (pointsP1.reduce((a, b) => a + b) > 99) {
     p1.classList.add("win");
     p1.classList.add("active");
-    p1name.textContent = "player 1 wins 🏆🏆🏆";
+    p1name.textContent = "win 🏆🏆🏆";
     btnRollDice.removeEventListener("click", throwDice);
-  } else if (pointsP2.reduce((a, b) => a + b) > 9) {
+  } else if (pointsP2.reduce((a, b) => a + b) > 99) {
     p2.classList.add("win");
     p2.classList.add("active");
-    p2name.textContent = "player 2 wins 🏆🏆🏆";
+    p2name.textContent = "win 🏆🏆🏆";
     btnRollDice.removeEventListener("click", throwDice);
   }
 };
 
+const newGame = function () {
+  sumRollP1 = [0];
+  sumRollP2 = [0];
+  pointsP1 = [0];
+  pointsP2 = [0];
+  p1CurrentScore.textContent = 0;
+  p1Score.textContent = 0;
+  p1name.textContent = "player 1";
+  p2CurrentScore.textContent = 0;
+  p2Score.textContent = 0;
+  p2name.textContent = "player 2";
+  dice.src = `./dice1.png`;
+  p1.classList.remove("win");
+  p1.classList.add("active");
+  p2.classList.remove("win");
+  p2.classList.remove("active");
+  btnRollDice.addEventListener("click", throwDice);
+};
+
 btnRollDice.addEventListener("click", throwDice);
 btnSave.addEventListener("click", save);
-
-// console.log(pointsP1.reduce((a, b) => a + b));
+btnReset.addEventListener("click", newGame);

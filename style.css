@@ -129,11 +129,11 @@ body {
 }
 
 .btn-roll {
-  top: 36rem;
+  bottom: 13.5rem;
 }
 
 .btn-roll:active {
-  top: 36.2rem;
+  bottom: 13.3rem;
 }
 
 .btn-save {
