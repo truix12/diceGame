@@ -18,6 +18,8 @@ const p2CurrentScore = document.querySelector(".player2-cscore");
 
 const dice = document.querySelector(".dice");
 
+dice.classList.add("hide");
+
 let sumRollP1 = [0];
 let sumRollP2 = [0];
 
@@ -30,6 +32,7 @@ const throwDice = function () {
   };
   let rollNumber = rollDice();
   dice.src = `./dice${rollNumber}.png`;
+  dice.classList.remove("hide");
 
   if (rollNumber > 1 && p1.classList.contains("active")) {
     sumRollP1.push(rollNumber);
@@ -100,6 +103,7 @@ const newGame = function () {
   p2.classList.remove("win");
   p2.classList.remove("active");
   btnRollDice.addEventListener("click", throwDice);
+  dice.classList.add("hide");
 };
 
 btnRollDice.addEventListener("click", throwDice);

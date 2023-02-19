@@ -147,3 +147,7 @@ body {
 .win {
   background-color: #F0BB4D;
 }
+
+.hide {
+  display: none;
+}
