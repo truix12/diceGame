@@ -27,10 +27,7 @@ let pointsP1 = [0];
 let pointsP2 = [0];
 
 const throwDice = function () {
-  const rollDice = function () {
-    return Math.floor(Math.random() * 6) + 1;
-  };
-  let rollNumber = rollDice();
+  const rollNumber = Math.floor(Math.random() * 6) + 1;
   dice.src = `./dice${rollNumber}.png`;
   dice.classList.remove("hide");
 
